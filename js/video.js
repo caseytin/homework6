@@ -25,8 +25,15 @@ function increaseSpeed() {
 } 
 
 function skipAhead() {
-	// todo
-	console.log("Current location is ");
+	// skip 60 seconds
+	if (video.currentTime > video.duration) {
+		// reset playback
+		video.load();
+		// reset speed
+		playbackRate = 1;
+	}
+	video.currentTime = video.currentTime + 60;
+	console.log("Current location is " + video.currentTime);
 } 
 
 function mute() { 
@@ -42,9 +49,7 @@ function mute() {
 
 function changeVolume() {
 	// todo
-	slider = document.querySelector("volumeSlider");
-	
-	console.log("Volume is " + slider);
+	console.log("Volume is " + video.volume);
 }
 	
 function gray() { 

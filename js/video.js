@@ -1,54 +1,58 @@
-var video;
+var video = document.querySelector("#myVideo"); 
 
 function getVid(){
-	video = document.querySelector("#myVideo"); 
+	video = document.querySelector("#myVideo");
 }
 
 function playVid() { 
 	console.log("Play Video");
-	video = document.querySelector("#myVideo"); 
-	video.play()
+	video.play();
 } 
 
 function pauseVid() { 
 	console.log("Pause Video");
-	video = document.querySelector("#myVideo"); 
-	video.pause()
+	video.pause();
 } 
 
-function decreaseSpeed() { 
-
-  	console.log("Speed is ");
+function decreaseSpeed() {
+	video.playbackRate = video.playbackRate * 0.8;
+	console.log("Speed is " + video.playbackRate);
 } 
 
 function increaseSpeed() {
-
-	console.log("Speed is "+ );
+	video.playbackRate = video.playbackRate * 1.25;
+	console.log("Speed is " + video.playbackRate);
 } 
 
 function skipAhead() {
-
-	console.log("Current location is "+ );
+	// todo
+	console.log("Current location is ");
 } 
 
 function mute() { 
-  	
-  		console.log("Unmuted");
-  	
-      	console.log("Muted");
+	if (video.muted) {
+		video.muted = false;
+		console.log("Unmuted");
+	}
+	else {
+		video.muted = true;
+		console.log("Muted");
+	}
 }
 
 function changeVolume() {
-;	console.log("Volume is ");
+	// todo
+	slider = document.querySelector("volumeSlider");
+	
+	console.log("Volume is " + slider);
 }
-       
-
+	
 function gray() { 
-
-	console.log("In grayscale")
+	video.classList.add("grayscale");
+	console.log("In grayscale");
 }
 
 function color() {
-
-	console.log("In color") 
+	video.classList.remove("grayscale");
+	console.log("In color");
 }

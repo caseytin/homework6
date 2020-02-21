@@ -3,22 +3,25 @@
 <head>
 	<meta charset="UTF-8">
 	<title>JavaScript Video Controls</title>
-	<script type="text/javascript" src="js/video.js"></script>
+	<script src="js/video.js" type="text/javascript"></script>
 	<style>
-	video{
+	.play:before {
+		content:url("assets/play.png");
+	}
+	.pause:before {
+		content:url("assets/pause.png");
+	}
+	video {
 		width: 90%;
 		border: 1px solid black;
 	}
-	.grayscale{
+	.grayscale {
 		filter: grayscale(100%);
 	}
 
-	button{
+	button {
 		margin-bottom: 5px;
 	}
-
-	/*Use CSS before property to display the image before the text in the buttons*/
-	
 </style>
 </head>
 <body onload = "getVid()"> 
@@ -34,9 +37,9 @@
 
 	<figure>
 	<video id="myVideo">
-		<source src="assets/big_buck_bunny_480p_stereo.ogg" type="video/ogg" />
-		<!-- I do not have captions - it was causing an error that I could not fix. -->
+		<source src="https://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_stereo.ogg" />
 	  	Your browser does not support HTML5 video.
+	  	<!-- I do not have captions - it was causing an error that I could not fix. -->
 	</video>
 	<figcaption>[Dramatic music throughout but no speaking]</figcaption>
 </figure>

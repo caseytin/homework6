@@ -26,13 +26,14 @@ function increaseSpeed() {
 
 function skipAhead() {
 	// skip 60 seconds
-	if (video.currentTime > video.duration) {
+	video.currentTime = video.currentTime + 60;
+	if (video.ended) {
 		// reset playback
 		video.load();
+		video.play();
 		// reset speed
 		playbackRate = 1;
 	}
-	video.currentTime = video.currentTime + 60;
 	console.log("Current location is " + video.currentTime);
 } 
 
@@ -48,8 +49,14 @@ function mute() {
 }
 
 function changeVolume() {
-	// todo
-	console.log("Volume is " + video.volume);
+	console.log(volumeSlider.value);
+	var slider_val = document.querySelector('#volume').innerHTML; 
+	// update slider value
+	slider_val = volumeSlider.value;
+	// update new video volume out of 100
+	video.volume = slider_val / 100;
+	// update html div
+	document.querySelector('#volume').innerHTML = slider_val + '%';
 }
 	
 function gray() { 
